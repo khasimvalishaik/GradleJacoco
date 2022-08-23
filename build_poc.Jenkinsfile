@@ -1,5 +1,5 @@
 #!groovy
-node ('linux'){
+node {
 def buildinfo
 def git_commit
 def jdkHome
