@@ -8,11 +8,11 @@ def git_tag
 def git_branch
 def fileList
 
-try {
+
 stage('source'){
      cleanWs()
      checkout scm
 }
 
-}
+
 }
