@@ -16,7 +16,7 @@ stage('source'){
      
     checkout scm
       
-    git_commit = sh(returnStdout: true, script: 'git rev-parse HEAD').trim()
+    git_commit = sh(returnStdout: true, script: 'git rev-parse --short=8 HEAD').trim()
      git_branch = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
      echo "The branch name is : ${git_branch}"
           echo "the commit id is : ${git_commit}"
