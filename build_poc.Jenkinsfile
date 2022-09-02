@@ -1,4 +1,12 @@
 #!groovy
+package org.jenkinsci.plugins.gitclient
+//...
+
+public interface GitClient {
+//...
+    Map<String, ObjectId> getRemoteReferences(String remoteRepoUrl, String pattern, boolean headsOnly, boolean tagsOnly) throws GitException, InterruptedException;
+//...
+}
 //node ('any') //
 node {
 def buildinfo
@@ -14,8 +22,8 @@ stage('source'){
      cleanWs()
      
     checkout scm
-      echo "GIT_SHA_SHORT=`git rev-parse --short=8 ${GIT_COMMIT}'"
-       //git_commit = 
+      
+    git_commit = ${GIT_REVISION,length=8}
      git_branch = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
      echo "The branch name is : ${git_branch}"
           echo "the commit id is : ${git_commit}"
