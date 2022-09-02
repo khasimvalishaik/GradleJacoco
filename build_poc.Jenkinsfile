@@ -1,13 +1,6 @@
 #!groovy
-package org.jenkinsci.plugins.gitclient
-//...
+//package org.jenkinsci.plugins.gitclient
 
-public interface GitClient {
-//...
-    Map<String, ObjectId> getRemoteReferences(String remoteRepoUrl, String pattern, boolean headsOnly, boolean tagsOnly) throws GitException, InterruptedException;
-//...
-}
-//node ('any') //
 node {
 def buildinfo
 def git_commit
