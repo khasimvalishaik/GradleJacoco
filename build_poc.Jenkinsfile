@@ -12,10 +12,9 @@ def fileList
 
 stage('source'){
      cleanWs()
-     //dir('CC'){
-     //checkout(common library branch)
-     }//
-     
+     /**dir('CC'){//
+     //checkout(common library branch)//
+     */
      dir('sega'){
      checkout scm
      git_commit = gitCommitShortHash(8)
