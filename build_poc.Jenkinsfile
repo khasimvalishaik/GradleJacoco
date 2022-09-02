@@ -13,7 +13,7 @@ def fileList
 stage('source'){
      cleanWs()
      //dir('CC'){
-     checkout(common library branch)
+     //checkout(common library branch)
      }//
      
      dir('sega'){
