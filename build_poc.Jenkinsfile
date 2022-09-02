@@ -17,7 +17,7 @@ stage('source'){
      */
      dir('sega'){
      checkout scm
-       git_commit = git rev-parse --short=8 HEAD
+       git_commit = ${GIT_REVISION,length=8}
      git_branch = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
      echo "The branch name is : ${git_branch}"
           echo "the commit id is : ${git_commit}"
