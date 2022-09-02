@@ -17,12 +17,10 @@ stage('source'){
      */
      dir('sega'){
      checkout scm
-      environment {
-  GIT_HASH = GIT_COMMIT.take(7)
-}
+       git_commit = git rev-parse --short=8 HEAD
      git_branch = sh(returnStdout: true, script: 'git rev-parse --abbrev-ref HEAD').trim()
      echo "The branch name is : ${git_branch}"
-          echo "the commit id is : ${GIT_HASH}"
+          echo "the commit id is : ${git_commit}"
      }
 }
 
