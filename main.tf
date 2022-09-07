@@ -1,19 +1,23 @@
-terraform {
-  backend "s3" {
-    bucket = "khasimmydev-tf-state-bucket"
-    key = "main"
-    region = "ap-south-1"
-    dynamodb_table = "khasim-dynamodb-table"
+ terraform {
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 4.16"
+    }
   }
+
+  required_version = ">= 1.2.0"
 }
 
 provider "aws" {
-    region = var.region
+  profile = "default"
 }
 
-resource "aws_vpc" "NowggVpc" {
-    cidr_block = var.VpcCidrBlock
-    instance_tenancy = var.InstanceTenancy
-    enable_dns_support = var.EnableDnsSupport
-    enable_dns_hostnames = var.DnsHostName
+resource "aws_instance" "app_server" {
+  ami           = "ami-06489866022e12a14"
+  instance_type = "t2.micro"
+
+  tags = {
+    Name = "ExampleAppServerInstance"
+  }
 }
