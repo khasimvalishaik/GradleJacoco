@@ -9,7 +9,9 @@ def gradleHome
 def git_tag
 def git_branch
 def fileList
- 
+ tools {
+      terraform "Terraform-Jenkins"
+  }
 
 stage('source'){
      cleanWs()
@@ -22,6 +24,26 @@ stage('source'){
           echo "the commit id is : ${git_commit}"
    
 }
+
+
+    stage('Terraform Init') {
+      steps {
+        sh label: '', script: 'terraform init'
+      }
+    }
+    
+    stage('Terraform plan') {
+      steps {
+        sh label: '', script: 'terraform plan -lock=false'
+      }
+    }
+    
+    stage('Terraform Action') {
+      steps {
+        sh label: '', script: 'terraform ${action} -lock=false -auto-approve'
+      }
+    }    
+
 
 
 }
