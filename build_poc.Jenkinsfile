@@ -9,7 +9,7 @@ def gradleHome
 def git_tag
 def git_branch
 def fileList
- tools {
+ def tools {
       terraform "Terraform-Jenkins"
   }
 
