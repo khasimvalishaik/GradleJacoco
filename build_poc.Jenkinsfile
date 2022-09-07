@@ -27,21 +27,21 @@ stage('source'){
 
 
     stage('Terraform Init') {
-      steps {
+      
         sh label: '', script: 'terraform init'
-      }
+      
     }
     
     stage('Terraform plan') {
-      steps {
+      
         sh label: '', script: 'terraform plan -lock=false'
-      }
+      
     }
     
     stage('Terraform Action') {
-      steps {
+      
         sh label: '', script: 'terraform ${action} -lock=false -auto-approve'
-      }
+      
     }    
 
 
