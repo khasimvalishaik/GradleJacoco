@@ -9,9 +9,9 @@ def gradleHome
 def git_tag
 def git_branch
 def fileList
- def tools {
+ /*def tools {
       terraform "Terraform-Jenkins"
-  }
+  }*/
 
 stage('source'){
      cleanWs()
