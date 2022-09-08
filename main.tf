@@ -2,17 +2,15 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = ">= 4.16"
+      version = "4.8.0"
     }
   }
-
-  required_version = ">= 1.2.0"
 }
 
 provider "aws" {
- region = "ap-south-1"
- profile = "default"
-  shared_credentials_file = "/home/ec2-user/.aws/credentials"
+ shared_config_files      = ["/home/ec2-user/.aws/config"]
+  shared_credentials_files = ["/home/ec2-user/.aws/credentials"]
+  profile                  = "test"
 }
 
 resource "aws_instance" "app_server" {
