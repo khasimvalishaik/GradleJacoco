@@ -28,19 +28,19 @@ stage('source'){
 
     stage('Terraform Init') {
       
-        sh label: '', script: 'terraform init'
+        sh  'terraform init'
       
     }
     
     stage('Terraform plan') {
       
-        sh label: '', script: 'terraform plan -lock=false'
+        sh 'terraform plan'
       
     }
     
     stage('Terraform Action') {
       
-        sh label: '', script: 'terraform ${action} -lock=false -auto-approve'
+          sh returnStatus: true, script: 'terraform ${action} -auto-approve'
       
     }    
 
