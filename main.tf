@@ -2,15 +2,13 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.16"
+      version = "3.74.0"
     }
   }
-
-  required_version = ">= 1.2.0"
 }
 
 provider "aws" {
-  profile = "default"
+ region = "ap-south-1"
 }
 
 resource "aws_instance" "app_server" {
