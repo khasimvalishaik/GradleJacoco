@@ -1,7 +1,7 @@
 #!groovy
 //package org.jenkinsci.plugins.gitclient
 
-node {
+node ("jenkins-slave1"){
 def buildinfo
 def git_commit
 def jdkHome
